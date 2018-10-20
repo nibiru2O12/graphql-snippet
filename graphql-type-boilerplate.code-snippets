@@ -1,0 +1,47 @@
+
+{
+	"graphtype-boiler": {
+		"prefix": "gqltype",
+		"body": [
+			"const graphql = require('graphql');",
+			"const {",
+			"\t GraphQLObjectType,",
+			"\t GraphQLInputObjectType,",
+			"\t GraphQLString,",
+			"\t GraphQLInt,",
+			"\t GraphQLList,",
+			"} = graphql"
+		]
+	},
+	"graphql-objectType": {
+		"prefix": "gqlObj",
+		"body":[
+			"module.exports.$1Type = new GraphQLObjectType({",
+			"\t name: '${1}' ,",
+			"\t fields: {",
+			"\t id: { type: GraphQLInt }",
+			"\t }",
+			"})"
+		]
+	},
+	"graphql-field": {
+		"prefix": "gqlf",
+		"body": [
+			"$1: { type: GraphQL${2:String} },",
+			""
+		]
+	},
+	"graphql-query-fields":{
+		"prefix": "qfields",
+		"body": [
+			"$1: {",
+			"\t type: $2,",
+			"\t args: {},",
+			"\t resolve(_,args){",
+			"\t \t return $3",
+			"\t }",
+			"},",
+			""
+		]
+	}
+}
